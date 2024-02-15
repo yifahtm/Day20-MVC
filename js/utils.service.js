@@ -1,3 +1,5 @@
+'use strict'
+
 function makeId(length = 6) {
     var id = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
