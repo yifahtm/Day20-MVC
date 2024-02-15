@@ -2,6 +2,9 @@ const BOOK_DB = 'bookDB'
 var gBooks
 _createBooks()
 
+function getBooks() {
+    return gBooks
+}
 function _createBooks() {
     gBooks = loadFromStorage(TODO_DB)
 
