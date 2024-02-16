@@ -18,6 +18,11 @@ function updatePrice(bookId, newPrice) {
     book.price = newPrice
 }
 
+function addBook(title, price) {
+    const newBook = _createBook(title, price)
+    gBooks.unshift(newBook)
+}
+
 function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 

@@ -18,7 +18,7 @@ function render() {
             </tr>
     `)
 
-    const elBooksContainer = document.querySelector('.book-container')
+    const elBooksContainer = document.querySelector('.book-container tbody')
     elBooksContainer.innerHTML = strHTMLs.join('')
 
     //renderStats()
@@ -33,5 +33,11 @@ function onUpdateBook(bookId, bookPrice) {
     const newPrice = +prompt('Please enter new price:', bookPrice)
     updatePrice(bookId, newPrice)
     render()
+}
 
+function onAddBook() {
+    const title = prompt('Please Enter a Title:')
+    const price = +prompt('Please Enter a Price:')
+    addBook(title, price)
+    render()
 }
