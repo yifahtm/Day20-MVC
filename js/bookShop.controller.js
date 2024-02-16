@@ -49,8 +49,12 @@ function onReadBook(bookId) {
     const elSpan = elBookDetails.querySelector('h2 span')
     const elPre = elBookDetails.querySelector('pre')
 
-    elPre.innerText = JSON.stringify(book, null, 4)
+    elPre.innerHTML = `
+    ID:${book.id}
+    Title: ${book.title}
+    Price: ${book.price}
+    Image:${book.imgUrl}`
     elSpan.innerText = book.title
-
+    elBookDetails.style.backgroundImage = `url("${book.imgUrl}")`
     elBookDetails.showModal()
 }

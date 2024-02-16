@@ -2,8 +2,18 @@
 
 const BOOK_DB = 'bookDB'
 var gBooks
+const gImages = [
+    'img/lori.png',
+    'img/world atlas.jpg',
+    'img/zorba the greek.jpg',
+    'img/the subtle art of not giving a fuck.jpg']
 _createBooks()
 
+function getImg() {
+    const imgIdx = getRandomInt(0, gImages.length - 1)
+    console.log(gImages[imgIdx])
+    return gImages[imgIdx]
+}
 function getBooks() {
     return gBooks
 }
@@ -44,6 +54,6 @@ function _createBook(txt, price) {
         id: makeId(),
         title: txt,
         price: price,
-        imgUrl: 'lori-ipsi.jpg'
+        imgUrl: getImg()
     }
 }
