@@ -7,6 +7,12 @@ _createBooks()
 function getBooks() {
     return gBooks
 }
+
+function removeBook(bookId) {
+    const bookIdx = gBooks.findIndex(book => book.id === bookId)
+    gBooks.splice(bookIdx, 1)
+}
+
 function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 
@@ -18,7 +24,6 @@ function _createBooks() {
         ]
     }
 }
-
 
 function _createBook(txt, price) {
     return {

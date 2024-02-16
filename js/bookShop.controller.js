@@ -13,7 +13,7 @@ function render() {
                 <td>
                     <button>Read</button>
                     <button>Update</button>
-                    <button>Delete</button>
+                    <button onclick="OnRemoveBook('${book.id}')">Delete</button>
                 </td>
             </tr>
     `)
@@ -22,4 +22,9 @@ function render() {
     elBooksContainer.innerHTML = strHTMLs.join('')
 
     //renderStats()
+}
+
+function OnRemoveBook(bookId) {
+    removeBook(bookId)
+    render()
 }
