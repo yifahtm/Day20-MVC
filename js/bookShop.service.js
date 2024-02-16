@@ -13,6 +13,11 @@ function removeBook(bookId) {
     gBooks.splice(bookIdx, 1)
 }
 
+function updatePrice(bookId, newPrice) {
+    const book = gBooks.find(book => book.id === bookId)
+    book.price = newPrice
+}
+
 function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 
