@@ -11,9 +11,9 @@ function render() {
                 <td>${book.title}</td>
                 <td>${book.price}</td>
                 <td>
-                    <button onclick="onReadBook('${book.id}')">Read</button>
-                    <button onclick="onUpdateBook('${book.id}','${book.price}')">Update</button>
-                    <button onclick="OnRemoveBook('${book.id}')">Delete</button>
+                    <button class="btn-read" onclick="onReadBook('${book.id}')">Read</button>
+                    <button  class="btn-update" onclick="onUpdateBook('${book.id}','${book.price}')">Update</button>
+                    <button  class="btn-delete" onclick="OnRemoveBook('${book.id}')">Delete</button>
                 </td>
             </tr>
     `)
