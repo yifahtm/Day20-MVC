@@ -23,6 +23,10 @@ function addBook(title, price) {
     gBooks.unshift(newBook)
 }
 
+function readBook(bookId) {
+    const book = gBooks.find(book => book.id === bookId)
+    return book
+}
 function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 
