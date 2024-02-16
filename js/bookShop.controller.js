@@ -38,6 +38,7 @@ function onUpdateBook(bookId, bookPrice) {
 function onAddBook() {
     const title = prompt('Please Enter a Title:')
     const price = +prompt('Please Enter a Price:')
+    if (!title || !price) return
     addBook(title, price)
     render()
 }
