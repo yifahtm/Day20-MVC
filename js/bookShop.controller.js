@@ -36,12 +36,22 @@ function renderStats() {
 
 function OnRemoveBook(bookId) {
     removeBook(bookId)
+    const elMessage = document.querySelector('.message')
+    const elMessageH2 = document.querySelector('.message h2')
+    elMessageH2.innerText = 'Deleted successfully'
+    elMessage.show()
+    setTimeout(() => elMessage.close(), 2000)
     render()
 }
 
 function onUpdateBook(bookId, bookPrice) {
     const newPrice = +prompt('Please enter new price:', bookPrice)
     updatePrice(bookId, newPrice)
+    const elMessage = document.querySelector('.message')
+    const elMessageH2 = document.querySelector('.message h2')
+    elMessageH2.innerText = 'Price updated successfully'
+    elMessage.show()
+    setTimeout(() => elMessage.close(), 2000)
     render()
 }
 
@@ -50,6 +60,11 @@ function onAddBook() {
     const price = +prompt('Please Enter a Price:')
     if (!title || !price) return
     addBook(title, price)
+    const elMessage = document.querySelector('.message')
+    const elMessageH2 = document.querySelector('.message h2')
+    elMessageH2.innerText = 'Book added to inventory'
+    elMessage.show()
+    setTimeout(() => elMessage.close(), 2000)
     render()
 }
 
