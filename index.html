@@ -10,6 +10,11 @@
 
 <body onload="onInit()">
     <h1>Fantasia Book Shop</h1>
+    <!-- <form oninput="onSetFilterBy(this)" class="new-todo"> -->
+    <label for="filter-input">Search:</label>
+    <input class="filter-input" type="text" placeholder="Anastasia" oninput="onSetFilterBy(this)" />
+    <button onclick="onClearFilter()">Clear</button>
+    <!-- </form> -->
     <button class="add" onclick="onAddBook()">Add New Book</button>
     <table class="book-container">
         <thead>

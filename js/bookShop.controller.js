@@ -59,3 +59,16 @@ function onReadBook(bookId) {
     elBookDetails.style.backgroundImage = `url("${book.imgUrl}")`
     elBookDetails.showModal()
 }
+
+function onSetFilterBy(input) {
+    const filterBy = input.value
+    setFilterBy(filterBy)
+    render()
+}
+
+function onClearFilter() {
+    const elInput = document.querySelector('.filter-input')
+    elInput.value = ''
+    clearFilter()
+    render()
+}

@@ -7,6 +7,7 @@ const gImages = [
     'img/world atlas.jpg',
     'img/zorba the greek.jpg',
     'img/the subtle art of not giving a fuck.jpg']
+var gFilterBy
 _createBooks()
 
 function getImg() {
@@ -14,8 +15,10 @@ function getImg() {
     console.log(gImages[imgIdx])
     return gImages[imgIdx]
 }
+
 function getBooks() {
-    return gBooks
+    if (gFilterBy) return gBooks.filter(book => book.title.toLowerCase().includes(gFilterBy))
+    return gBooks || []
 }
 
 function removeBook(bookId) {
@@ -40,6 +43,16 @@ function readBook(bookId) {
     const book = gBooks.find(book => book.id === bookId)
     return book
 }
+
+function setFilterBy(filterBy) {
+    gFilterBy = filterBy.toLowerCase()
+    console.log(gFilterBy)
+}
+
+function clearFilter() {
+    gFilterBy = null
+}
+
 function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 
