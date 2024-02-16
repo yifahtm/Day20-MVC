@@ -36,22 +36,14 @@ function renderStats() {
 
 function OnRemoveBook(bookId) {
     removeBook(bookId)
-    const elMessage = document.querySelector('.message')
-    const elMessageH2 = document.querySelector('.message h2')
-    elMessageH2.innerText = 'Deleted successfully'
-    elMessage.show()
-    setTimeout(() => elMessage.close(), 2000)
+    handleMessage('delete')
     render()
 }
 
 function onUpdateBook(bookId, bookPrice) {
     const newPrice = +prompt('Please enter new price:', bookPrice)
     updatePrice(bookId, newPrice)
-    const elMessage = document.querySelector('.message')
-    const elMessageH2 = document.querySelector('.message h2')
-    elMessageH2.innerText = 'Price updated successfully'
-    elMessage.show()
-    setTimeout(() => elMessage.close(), 2000)
+    handleMessage('update')
     render()
 }
 
@@ -60,11 +52,7 @@ function onAddBook() {
     const price = +prompt('Please Enter a Price:')
     if (!title || !price) return
     addBook(title, price)
-    const elMessage = document.querySelector('.message')
-    const elMessageH2 = document.querySelector('.message h2')
-    elMessageH2.innerText = 'Book added to inventory'
-    elMessage.show()
-    setTimeout(() => elMessage.close(), 2000)
+    handleMessage('add')
     render()
 }
 
@@ -83,6 +71,16 @@ function onReadBook(bookId) {
     elSpan.innerText = book.title
     elBookDetails.style.backgroundImage = `url("${book.imgUrl}")`
     elBookDetails.showModal()
+}
+
+function handleMessage(button) {
+    const elMessage = document.querySelector('.message')
+    const elMessageH2 = document.querySelector('.message h2')
+    if (button === 'delete') elMessageH2.innerText = 'Deleted successfully'
+    if (button === 'update') elMessageH2.innerText = 'Price updated successfully'
+    if (button === 'add') elMessageH2.innerText = 'Book added to inventory'
+    elMessage.show()
+    setTimeout(() => elMessage.close(), 2000)
 }
 
 function onSetFilterBy(input) {
