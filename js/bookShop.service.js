@@ -53,6 +53,21 @@ function clearFilter() {
     gFilterBy = null
 }
 
+function getExpensiveBooks() {
+    const expensive = gBooks.filter(book => book.price > 200)
+    return expensive.length
+}
+
+function getAverageBooks() {
+    const average = gBooks.filter(book => book.price < 200 && book.price >= 80)
+    return average.length
+}
+
+function getCheapBooks() {
+    const cheap = gBooks.filter(book => book.price < 80)
+    return cheap.length
+}
+
 function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 

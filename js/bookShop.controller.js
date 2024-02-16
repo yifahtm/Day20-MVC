@@ -21,7 +21,17 @@ function render() {
     const elBooksContainer = document.querySelector('.book-container tbody')
     elBooksContainer.innerHTML = strHTMLs.join('')
 
-    //renderStats()
+    renderStats()
+}
+
+function renderStats() {
+    const elExpensive = document.querySelector('.expensive')
+    const elAverage = document.querySelector('.average')
+    const elCheap = document.querySelector('.cheap')
+
+    elExpensive.innerText = getExpensiveBooks()
+    elAverage.innerText = getAverageBooks()
+    elCheap.innerText = getCheapBooks()
 }
 
 function OnRemoveBook(bookId) {
