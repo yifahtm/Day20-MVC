@@ -10,11 +10,11 @@
 
 <body onload="onInit()">
     <h1 class="title"><span>Fantasia</span> Book Shop</h1>
-    <!-- <form oninput="onSetFilterBy(this)" class="new-todo"> -->
+
     <label class="filter-input" for="filter-input">Search:</label>
     <input class="filter-input" type="text" placeholder="Anastasia" oninput="onSetFilterBy(this)" />
     <button class="btn-clear" onclick="onClearFilter()">Clear</button>
-    <!-- </form> -->
+
     <button class="btn-add" onclick="onAddBook()">Add New Book</button>
     <table class="book-container">
         <thead>
@@ -27,8 +27,8 @@
         </tbody>
     </table>
     <!-- <dialog class="input-add">
-        <label class="title-input" for="title-input">Title:</label>
-        <input class="title-input" type="text" placeholder="The Never Ending Story" />
+        <label id="title-input" for="title-input">Title:</label>
+        <input id="title-input" type="text" placeholder="The Never Ending Story" />
         <label class="price-input" for="price-input">Price:</label>
         <input class="price-input" type="number" placeholder="56" />
         <button onclick="onAddBook()">Add</button>
@@ -52,7 +52,7 @@
     <footer>
         <section>
             <span>Priced above 200:</span>
-            <span class="expensive">0</span>,
+            <span class="expensive">0</span>
         </section>
         <section>
             <span>Priced between 80-200:</span>

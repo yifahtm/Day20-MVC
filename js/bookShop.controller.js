@@ -62,8 +62,8 @@ function onAddBook() {
 }
 
 // function onAddBook() {
-//     const elTitleInput = document.getElementById('title-input')
-//     const elPriceInput = document.getElementById('price-input')
+//     const elTitleInput = document.querySelector('.title-input')
+//     const elPriceInput = document.querySelector('.price-input')
 //     const elModal = document.querySelector('.input-add')
 //     const title = elTitleInput.value
 //     const price = elPriceInput.value
