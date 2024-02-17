@@ -47,6 +47,11 @@ function onUpdateBook(bookId, bookPrice) {
     render()
 }
 
+// function onOpenModal() {
+//     const elModal = document.querySelector('.input-add')
+//     elModal.show()
+// }
+
 function onAddBook() {
     const title = prompt('Please Enter a Title:')
     const price = +prompt('Please Enter a Price:')
@@ -55,6 +60,20 @@ function onAddBook() {
     handleMessage('add')
     render()
 }
+
+// function onAddBook() {
+//     const elTitleInput = document.getElementById('title-input')
+//     const elPriceInput = document.getElementById('price-input')
+//     const elModal = document.querySelector('.input-add')
+//     const title = elTitleInput.value
+//     const price = elPriceInput.value
+//     if (!title || !price) return
+//     addBook(title, price)
+//     handleMessage('add')
+//     render()
+//     elModal.close()
+
+// }
 
 function onReadBook(bookId) {
     const book = readBook(bookId)
