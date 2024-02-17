@@ -90,6 +90,11 @@ table {
 
 .book-details {
     position: relative;
+    color: hsl(14, 93%, 11%)
+}
+
+.book-details pre {
+    font-size: 20px;
 }
 
 .close {
