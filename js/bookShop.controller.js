@@ -81,15 +81,18 @@ function onReadBook(bookId) {
     const elBookDetails = document.querySelector('.book-details')
     const elSpan = elBookDetails.querySelector('h2 span')
     const elPre = elBookDetails.querySelector('pre')
-    const elImg = elBookDetails.querySelector('.img')
-
+    const elImgSpan = elBookDetails.querySelector('.img')
+    // const elIdContainerSpan = elBookDetails.querySelector('.id-container')
+    // const elIdSpan = elIdContainerSpan.querySelector('.id')
+    // elIdContainerSpan.innerText = 'ID: '
+    // elIdSpan.innerText = book.id
     elPre.innerHTML = `
-    ID:${book.id}
+    ID: ${book.id}
     Title: ${book.title}
     Price: ${book.price}
     `
     elSpan.innerText = book.title
-    elImg.innerHTML = `<img src="${book.imgUrl}" alt="${book.title}">`
+    elImgSpan.innerHTML = `<img src="${book.imgUrl}" alt="${book.title}">`
     elBookDetails.showModal()
 }
 
@@ -113,5 +116,31 @@ function onClearFilter() {
     const elInput = document.querySelector('.filter-input')
     elInput.value = ''
     clearFilter()
+    render()
+}
+
+function onRate(ev, elBtn) {
+    //Need to figure out how to send the bookId, so i could change rate in modal&local storage
+    ev.preventDefault()
+    const elSpan = document.querySelector('.rate')
+    var rate
+    if (elBtn.innerText === '+') {
+        rate = getRate('+')
+        elSpan.innerText = rate
+    } else if (elBtn.innerText === '-') {
+        rate = getRate('-')
+        elSpan.innerText = rate
+    }
+    // if (elSpan.innerText < 1) elSpan.innerText = '1'
+    // if (elSpan.innerText > 5) elSpan.innerText = '5'
+    // if (elSpan.innerText >= 1 || elSpan.innerText <= 5) {
+    //     if (elBtn.innerText === '+') {
+    //         gCount++
+    //     }
+    //     else if (elBtn.innerText === '-') {
+    //         gCount--
+    //     }
+    // }
+    // elSpan.innerText = gCount
     render()
 }

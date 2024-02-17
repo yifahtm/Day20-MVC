@@ -40,7 +40,11 @@
     <dialog class="book-details">
         <form class="dialog" method="dialog">
             <h2>Book: <span></span></h2>
+            <!-- <span class="id-container"><span class="id"></span></span> -->
             <pre></pre>
+            <button onclick="onRate(event,this)">-</button>
+            <span class="rate">1</span>
+            <button onclick="onRate(event,this)">+</button>
             <span class="img"></span>
             <button class="close">X</button>
         </form>

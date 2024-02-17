@@ -8,7 +8,13 @@ const gImages = [
     'img/zorba the greek.jpg',
     'img/the subtle art of not giving a fuck.jpg']
 var gFilterBy
+var gCount = 1
 _createBooks()
+
+function getBooks() {
+    if (gFilterBy) return gBooks.filter(book => book.title.toLowerCase().includes(gFilterBy))
+    return gBooks || []
+}
 
 function getImg() {
     const imgIdx = getRandomInt(0, gImages.length - 1)
@@ -16,9 +22,11 @@ function getImg() {
     return gImages[imgIdx]
 }
 
-function getBooks() {
-    if (gFilterBy) return gBooks.filter(book => book.title.toLowerCase().includes(gFilterBy))
-    return gBooks || []
+function getRate(operator) {
+    if (operator === '+') return gCount = Math.min(5, gCount + 1)
+    else if (operator === '-') return gCount = Math.max(1, gCount - 1)
+
+    _saveBooks()
 }
 
 function removeBook(bookId) {
@@ -86,6 +94,7 @@ function _createBook(txt, price) {
         id: makeId(),
         title: txt,
         price: price,
+        // rate: 1,
         imgUrl: getImg()
     }
 }
