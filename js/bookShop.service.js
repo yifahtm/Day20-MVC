@@ -22,11 +22,19 @@ function getImg() {
     return gImages[imgIdx]
 }
 
-function getRate(operator) {
-    if (operator === '+') return gCount = Math.min(5, gCount + 1)
-    else if (operator === '-') return gCount = Math.max(1, gCount - 1)
+function getRate(bookId, diff) {
+    const book = getBook(bookId)
+    const newRating = book.rating + diff
+    if (newRating >= 0 && newRating <= 5) {
+        book.rating = newRating
+        _saveBooks()
+    }
+    return book
+}
 
-    _saveBooks()
+function getBook(bookId) {
+    const book = gBooks.find((book) => book.id === bookId)
+    if (book) return book
 }
 
 function removeBook(bookId) {
@@ -58,28 +66,28 @@ function setFilterBy(filterBy) {
 }
 
 function clearFilter() {
-    gFilterBy = null
+    gFilterBy = ''
 }
 
-function getExpensiveBooks() {
-    const expensive = gBooks.filter(book => book.price > 200)
-    return expensive.length
+function getExpensiveBooks() {//chhange length also for functions
+    const expensiveBooks = gBooks.filter(book => book.price > 200)
+    return expensiveBooks.length
 }
 
 function getAverageBooks() {
-    const average = gBooks.filter(book => book.price < 200 && book.price >= 80)
-    return average.length
+    const averageBooks = gBooks.filter(book => book.price < 200 && book.price >= 80)
+    return averageBooks.length
 }
 
 function getCheapBooks() {
-    const cheap = gBooks.filter(book => book.price < 80)
-    return cheap.length
+    const cheapBooks = gBooks.filter(book => book.price < 80)
+    return cheapBooks.length
 }
 
 function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 
-    if (!gBooks || gBooks.length === 0) {
+    if (!gBooks || !gBooks.length) {
         gBooks = [
             _createBook('The adventures of Lori Ipsi', 120),
             _createBook('World Atlas', 300),
@@ -89,12 +97,12 @@ function _createBooks() {
     }
 }
 
-function _createBook(txt, price) {
+function _createBook(title, price) {
     return {
         id: makeId(),
-        title: txt,
-        price: price,
-        // rate: 1,
+        title,
+        price,
+        rating: 1,
         imgUrl: getImg()
     }
 }

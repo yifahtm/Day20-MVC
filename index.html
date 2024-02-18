@@ -15,7 +15,7 @@
     <input class="filter-input" type="text" placeholder="Anastasia" oninput="onSetFilterBy(this)" />
     <button class="btn-clear" onclick="onClearFilter()">Clear</button>
 
-    <button class="btn-add" onclick="onAddBook()">Add New Book</button>
+    <button class="btn-add" onclick="onOpenModal()">Add New Book</button>
     <button class="btn-disp" onclick="onChangeDisplay()">Change Display</button>
     <table class="book-container disp-table">
         <thead>
@@ -27,13 +27,13 @@
 
         </tbody>
     </table>
-    <!-- <dialog class="input-add">
-        <label id="title-input" for="title-input">Title:</label>
-        <input id="title-input" type="text" placeholder="The Never Ending Story" />
-        <label class="price-input" for="price-input">Price:</label>
+    <dialog class="input-add">
+        <label for="title-input">Title:</label>
+        <input class="title-input" type="text" placeholder="The Never Ending Story" />
+        <label for="price-input">Price:</label>
         <input class="price-input" type="number" placeholder="56" />
         <button onclick="onAddBook()">Add</button>
-    </dialog> -->
+    </dialog>
     <dialog class="message">
         <h2></h2>
     </dialog>
@@ -43,9 +43,9 @@
             <h2>Book: <span></span></h2>
             <!-- <span class="id-container"><span class="id"></span></span> -->
             <pre></pre>
-            <button onclick="onRate(event,this)">-</button>
+            <button onclick="onRate(event,-1)">-</button>
             <span class="rate">1</span>
-            <button onclick="onRate(event,this)">+</button>
+            <button onclick="onRate(event,1)">+</button>
             <span class="img"></span>
             <button class="close">X</button>
         </form>
