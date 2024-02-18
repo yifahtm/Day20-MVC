@@ -144,3 +144,7 @@ function onRate(ev, elBtn) {
     // elSpan.innerText = gCount
     render()
 }
+
+function onChangeDisplay() {
+
+}
